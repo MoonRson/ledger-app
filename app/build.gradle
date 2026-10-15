@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.moonrson.ledger'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.moonrson.ledger"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../../ledger-release.p12")
+            storeType "PKCS12"
+            storePassword "ledger2026"
+            keyAlias "ledger"
+            keyPassword "ledger2026"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+// 无第三方依赖：纯框架 WebView，构建快、APK 小
