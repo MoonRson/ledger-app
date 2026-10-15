@@ -16,7 +16,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("../../ledger-release.p12")
+            storeFile file("../ledger-release.p12")
             storeType "PKCS12"
             storePassword "ledger2026"
             keyAlias "ledger"
